@@ -1,13 +1,17 @@
 class cartPage{
 
     elements = {
-        removeBtn: (text) => cy.get('btn_secondary cart_button')
-        .eq(text).find('button').contains('REMOVE'),
+        removeProductBtn: (productName) => cy.contains('.cart_item', productName)
+            .find('button'),
         checkoutBtn: () => cy.get('.btn_action checkout_button')
     }
 
-    clickRemove(text) {
-        this.elements.removeBtn(text).click();
+    clickRemove(productName) {
+        this.elements.removeProductBtn(productName).click();
+    }
+
+    removeNotExist(productName) {
+        cy.contains('.cart_item', productName).should('not.exist');
     }
 
     clickChecout(){
