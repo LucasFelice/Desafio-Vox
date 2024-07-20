@@ -2,7 +2,7 @@ class loginPage{
 
     elements = {
         usernameInput: () => cy.get('#user-name'),
-        usernamePassword: () => cy.get('#password'),
+        passwordInput: () => cy.get('#password'),
         loginBtn: () => cy.get('#login-button'),
     }
 
@@ -11,7 +11,7 @@ class loginPage{
     }
 
     typePassword(password){
-        this.elements.usernamePassword().type(password);
+        this.elements.passwordInput().type(password);
     }
 
     clickLogin(){
