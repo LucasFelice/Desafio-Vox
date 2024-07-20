@@ -13,8 +13,7 @@ When("I type a registered email and password", () => {
 })
 
 Then("I have a successful login", () => {
-    inventoryPage.elements.productLabel()
-        .should('have.text', 'Products')
+    inventoryPage.getTitleProduct('Products')
 })
 
 When("I type a registered email and an incorrect password", () => {
@@ -24,8 +23,7 @@ When("I type a registered email and an incorrect password", () => {
 })
 
 Then("I have an unsuccessful login", () => {
-    loginPage.elements.errorMessage().should('have.text',
-        'Epic sadface: Username and password do not match any user in this service')
+    loginPage.getErrorMessage('Epic sadface: Username and password do not match any user in this service');
 })
 
 When("I don't type the email and password fields", () => {
@@ -33,6 +31,5 @@ When("I don't type the email and password fields", () => {
 })
 
 Then("I have unfilled required fields", () => {
-    loginPage.elements.errorMessage().should('have.text',
-        'Epic sadface: Username is required')
+    loginPage.getErrorMessage('Epic sadface: Username is required')
 })
