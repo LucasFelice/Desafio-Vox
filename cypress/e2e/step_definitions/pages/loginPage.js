@@ -18,6 +18,10 @@ class loginPage{
     clickLogin(){
         this.elements.loginBtn().click();
     }
+
+    getErrorMessage(expectedMessage) {
+        return this.elements.errorMessage().should('have.text', expectedMessage);
+    }
 }
 
 module.exports = new loginPage();
