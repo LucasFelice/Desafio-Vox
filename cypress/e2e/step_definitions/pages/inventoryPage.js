@@ -8,15 +8,16 @@ class inventoryPage{
         productByText: (productName) => cy.contains('.inventory_item_name', productName),
         addToCartBtn: (text) => cy.get('.inventory_item')
             .eq(text).find('button').contains('ADD TO CART'),
-        shoppingCartBtn: () => cy.get('[data-icon="shopping-cart"]')
+        shoppingCartBtn: () => cy.get('[data-icon="shopping-cart"]'),
+        validateUrl: (expectedPart) => cy.url().should('include', expectedPart)
     }
 
     getProduct(){
-        this.elements.productLabel().should('be.isVisible');
+        this.elements.productLabel().should('be.visible');
     }
 
     getInventory(){
-        this.elements.inventoryGrid().should('be.isVisible');
+        this.elements.inventoryGrid().should('be.visible');
     }
 
     setProduct(productName) {
@@ -25,11 +26,15 @@ class inventoryPage{
     }
 
     addToCart(text) {
-        this.elements.addToCartBtn(text).click().should('be.isVisible', 'REMOVE');
+        this.elements.addToCartBtn(text).click().should('be.visible', 'REMOVE');
     }
 
     clickShoppingCart(){
         this.elements.shoppingCartBtn.click();
+    }
+
+    validateUrl(expectedPart) {
+        this.elements.validateUrl(expectedPart);
     }
 }
 

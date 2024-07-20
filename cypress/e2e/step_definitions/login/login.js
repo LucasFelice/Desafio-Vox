@@ -1,5 +1,6 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import loginPage from '../pages/loginPage'
+import inventoryPage from '../pages/inventoryPage'
 
 Given("I'm on the login page", () => {
     cy.visit("https://www.saucedemo.com/v1/")
@@ -12,7 +13,8 @@ When("I type a registered email and password", () => {
 })
 
 Then("I have a successful login", () => {
-    cy.url().should('include', 'inventory');
+    inventoryPage.elements.productLabel()
+        .should('have.text', 'Products')
 })
 
 When("I type a registered email and an incorrect password", () => {
