@@ -12,7 +12,7 @@ When("I type a registered email and password", () => {
 })
 
 Then("I have a successful login", () => {
-    cy.get('.product_label')
+    cy.url().should('include', 'inventory');
 })
 
 When("I type a registered email and an incorrect password", () => {
