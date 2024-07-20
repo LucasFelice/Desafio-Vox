@@ -25,7 +25,7 @@ class inventoryPage{
         product.should('be.visible');
     }
 
-    addToCart(text) {
+    clickAddToCart(text) {
         this.elements.addToCartBtn(text).click().should('be.visible', 'REMOVE');
     }
 
