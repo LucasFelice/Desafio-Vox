@@ -1,18 +1,16 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import loginPage from '../pages/loginPage'
-import inventoryPage from '../pages/inventoryPage'
+import login from '../../../support/pages/login/loginPage'
+const inventoryElements = require('../../../support/pages/inventory/elements').INVENTORY;
 
 Given("I have a successful login", () => {
-    cy.visit("https://www.saucedemo.com/v1/");
-    loginPage.typeUsername('standard_user');
-    loginPage.typePassword('secret_sauce');
-    loginPage.clickLogin();
+    cy.visit(Cypress.config().baseUrl)
+    login.doLogin('standard_user', 'secret_sauce')
 })
 
 When("I access the inventory page", () => {
-    inventoryPage.validateUrl('inventory')
+    cy.url().should('eq', Cypress.config().baseUrl + '/inventory.html')
 })
 
 Then("The product catalog is visible", () => {
-    inventoryPage.getInventory();
+    cy.get(inventoryElements.inventoryGrid).should('be.visible')
 })
