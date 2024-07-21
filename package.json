@@ -1,7 +1,7 @@
 {
   "name": "desafio-vox",
   "version": "1.0.0",
-  "description": "",
+  "description": "Desafio automação de testes UI para a empresa Vox Tecnologia",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,10 +9,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.13.1"
+    "cypress": "~13.13.1"
   },
   "dependencies": {
-    "cypress-cucumber-preprocessor": "^4.3.1"
+    "cypress-cucumber-preprocessor": "~4.3.1"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
