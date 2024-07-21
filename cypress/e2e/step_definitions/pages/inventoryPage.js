@@ -23,6 +23,10 @@ class inventoryPage{
         this.elements.productByText(productName);
     }
 
+    getProduct(productName) {
+        this.elements.productByText(productName).should('exist').and('contain.text', productName);
+    }
+
     clickAddToCart(productName) {
         this.elements.addToCartBtn(productName).click();
     }
