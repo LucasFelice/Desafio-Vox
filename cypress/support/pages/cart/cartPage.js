@@ -1,10 +1,6 @@
-class cartPage{
+const elements = require('./elements').CART;
 
-    elements = {
-        removeProductBtn: (productName) => cy.contains('.cart_item', productName)
-            .find('button'),
-        checkoutBtn: () => cy.contains('a', 'CHECKOUT')
-    }
+class cartPage{
 
     clickRemove(productName) {
         this.elements.removeProductBtn(productName).click();
@@ -18,8 +14,6 @@ class cartPage{
         this.elements.checkoutBtn().click();
     }
 
-
-    
 }
 
 module.exports = new cartPage();
