@@ -2,7 +2,7 @@ class finishPage{
 
     elements = {
         finishTitle: () => cy.get('.subheader'),
-        thankYouLabel: () => cy.get('h3[data-test="error"]')
+        thankYouLabel: () => cy.get('.complete-header')
     }
 
     getTitleFinish(title) {
