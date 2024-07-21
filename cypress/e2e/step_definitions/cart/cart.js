@@ -18,8 +18,8 @@ When("I click on the addToCart button of product", () => {
 
 Then("I valid the products in the shopping cart", () => {
     inventoryPage.clickShoppingCart();
-    inventoryPage.setProduct('Sauce Labs Backpack');
-    inventoryPage.setProduct('Sauce Labs Bike Light');
+    inventoryPage.getProduct('Sauce Labs Backpack');
+    inventoryPage.getProduct('Sauce Labs Bike Light');
 })
 
 Given("I access the cart page", () => {
