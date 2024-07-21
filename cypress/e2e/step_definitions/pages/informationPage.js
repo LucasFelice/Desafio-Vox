@@ -1,10 +1,16 @@
-class informatePage{
+class informationPage{
 
     elements = {
+        informationTitle: () => cy.get('.subheader'),
         firstNameInput: () => cy.get('#first-name'),
         lastNameInput: () => cy.get('#last-name'),
         postalCodeInput: () => cy.get('#postal-code'),
-        continueBtn: () => cy.get('button[value="CONTINUE"]'),        
+        continueBtn: () => cy.get('input[value="CONTINUE"]'),
+
+    }
+
+    getTitleInformation(title) {
+        return this.elements.informationTitle().should('have.text', title)
     }
 
     typeFistName(fistName){
@@ -24,4 +30,4 @@ class informatePage{
     }    
 }
 
-module.exports = new informatePage();
+module.exports = new informationPage();
