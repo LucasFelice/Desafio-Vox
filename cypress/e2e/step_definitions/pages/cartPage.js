@@ -14,7 +14,7 @@ class cartPage{
         cy.contains('.cart_item', productName).should('not.exist');
     }
 
-    clickChecout(){
+    clickCheckout(){
         this.elements.checkoutBtn().click();
     }
 
