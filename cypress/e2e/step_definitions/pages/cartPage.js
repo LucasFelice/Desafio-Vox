@@ -3,7 +3,7 @@ class cartPage{
     elements = {
         removeProductBtn: (productName) => cy.contains('.cart_item', productName)
             .find('button'),
-        checkoutBtn: () => cy.get('.btn_action checkout_button')
+        checkoutBtn: () => cy.contains('a', 'CHECKOUT')
     }
 
     clickRemove(productName) {
@@ -15,7 +15,7 @@ class cartPage{
     }
 
     clickChecout(){
-        this.elements.checkoutBtn();
+        this.elements.checkoutBtn().click();
     }
 
 
