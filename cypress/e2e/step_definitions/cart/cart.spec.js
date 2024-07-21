@@ -1,46 +1,34 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import loginPage from '../pages/loginPage'
-import inventoryPage from '../pages/inventoryPage'
-import cartPage from '../pages/cartPage'
+import login from '../../../support/pages/login/loginPage'
+import inventory from '../../../support/pages/inventory/inventoryPage'
+const inventoryElements = require('../../../support/pages/inventory/elements').INVENTORY;
 
 Given("I access the inventory page", () => {
-    cy.visit("https://www.saucedemo.com/v1/");
-    loginPage.typeUsername('standard_user');
-    loginPage.typePassword('secret_sauce');
-    loginPage.clickLogin();
-    inventoryPage.validateUrl('inventory')
+    cy.visit(Cypress.config().baseUrl)
+    login.doLogin('standard_user', 'secret_sauce')
+    cy.url().should('eq', Cypress.config().baseUrl + '/inventory.html')
 })
 
 When("I click on the addToCart button of product", () => {
-    inventoryPage.clickAddToCart('Sauce Labs Backpack');
-    inventoryPage.clickAddToCart('Sauce Labs Bike Light')
+    inventory.addProductsByCart()
 })
 
 Then("I valid the products in the shopping cart", () => {
-    inventoryPage.clickShoppingCart();
-    inventoryPage.getProduct('Sauce Labs Backpack');
-    inventoryPage.getProduct('Sauce Labs Bike Light');
+    cy.get(inventoryElements.cartList).should('be.visible')
 })
 
 Given("I access the cart page", () => {
-    cy.visit("https://www.saucedemo.com/v1/");
-    loginPage.typeUsername('standard_user');
-    loginPage.typePassword('secret_sauce');
-    loginPage.clickLogin();
-    inventoryPage.setProduct('Sauce Labs Backpack');
-    inventoryPage.setProduct('Sauce Labs Bike Light');
-    inventoryPage.clickAddToCart('Sauce Labs Backpack');
-    inventoryPage.clickAddToCart('Sauce Labs Bike Light');
-    inventoryPage.clickShoppingCart();
-    inventoryPage.validateUrl('cart')
+    cy.visit(Cypress.config().baseUrl)
+    login.doLogin('standard_user', 'secret_sauce')
+    inventory.addProductsByCart()
+    cy.url().should('eq', Cypress.config().baseUrl + '/cart.html')
 })
 
 When("I click on the remove button of shopping cart", () => {
-    cartPage.clickRemove('Sauce Labs Backpack');
-    cartPage.clickRemove('Sauce Labs Bike Light');
+    cy.contains('button', 'Remove').click()
+    cy.contains('button', 'Remove').click()
 })
 
 Then("I valid that the remove button does not exist", () => {
-    cartPage.removeNotExist('Sauce Labs Backpack');
-    cartPage.removeNotExist('Sauce Labs Bike Light');
+    cy.contains('button', 'Remove').should('not.exist')
 })
