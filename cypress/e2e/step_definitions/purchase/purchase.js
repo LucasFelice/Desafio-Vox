@@ -21,7 +21,7 @@ Given("I valid the products in the shopping cart", () => {
 })
 
 When("I click on the checkout button of the page cart", () => {
-    cartPage.clickChecout();
+    cartPage.clickCheckout();
     informationPage.getTitleInformation('Checkout: Your Information');
 })
 
