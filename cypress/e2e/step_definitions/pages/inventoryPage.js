@@ -1,7 +1,7 @@
 class inventoryPage{
 
     elements = {
-        productLabel: (title) => cy.get('.product_label'),
+        productTitle: () => cy.get('.product_label'),
         inventoryGrid: () => cy.get('#inventory_container'),
         productByText: (productName) => cy.contains('.inventory_item_name', productName),
         addToCartBtn: (productName) => cy.contains('.inventory_item', productName)
@@ -11,7 +11,7 @@ class inventoryPage{
     }
 
     getTitleProduct(title) {
-        return cy.get('.product_label').contains(title);
+        return this.elements.productTitle().should('have.text', title)
     }
     
 
