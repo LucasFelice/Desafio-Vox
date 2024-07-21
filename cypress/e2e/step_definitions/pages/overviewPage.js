@@ -2,7 +2,7 @@ class overviewPage{
 
     elements = {
         overviewTitle: () => cy.get('.subheader'),
-        finishBtn: () => cy.contains('button', 'FINISH'),
+        finishBtn: () => cy.contains('a', 'FINISH'),
         paymentInfLabel: () => cy.get('h3[data-test="error"]')
     }
 
