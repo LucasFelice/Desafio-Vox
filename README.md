@@ -1,5 +1,5 @@
 # Desafio-Vox
-Desafio técnico para a posição de QA com foco em automação de testes front-end no ambiente Sauce Demo utilizando Cypress com JavaScript.
+Desafio técnico para a posição de QA com foco em automação de testes front-end no ambiente Sauce Demo utilizando Cypress com JavaScript, Cucumber e gerenciando massas via Json.
 
 ## Índice
 - <a href="#objetivos">Objetivos</a> 
@@ -12,7 +12,7 @@ Desafio técnico para a posição de QA com foco em automação de testes front-
 
 ## Objetivos
 - Automação de testes de front-end.
-- Utilizar o Cypress para interagir com - elementos web.
+- Utilizar o Cypress para interagir com elementos web.
 - Implementar testes para garantir a funcionalidade e integridade da interface do usuário.
 - Explorar boas práticas e padrões de design para automação de testes em JavaScript em BDD.
 
@@ -43,18 +43,17 @@ $ cd Desafio-vox
 $ npm install
 
 # Execute a aplicação
-$ Antes da execução certifique-se que não há dados na pasta "allure-results" para não gerar resultados
 $ npm run dev ⇢ Abre a interface do cypress
 $ npm run allure:chrome ⇢ Esse comando irá executar os testes no navegador Chrome e gerar os resultados no diretório "allure-results".
 $ npm run allure:report ⇢ Esse comando irá gerar o relatório Allure a partir dos resultados e abrir o relatório no navegador.
+$ Obs.: Foi feita a configuração do Allure via Mocha.
 ```
 ## Tecnologias Utilizadas
-1. [React](https://www.saucedemo.com/)
-2. [Cypress](https://www.cypress.io/)
-3. [JavaScrip](https://www.javascript.com/)
-4. [Cucumber](https://cucumber.io/)
-5. [Mochawesome](https://mochajs.org/)
-6. [Node.js](https://nodejs.org/pt)
+1. [Cypress](https://www.cypress.io/)
+2. [JavaScript](https://www.javascript.com/)
+3. [Cucumber](https://cucumber.io/)
+4. [Allure-reports](https://allurereport.org/docs/mocha-reference/)
+5. [Node.js](https://nodejs.org/pt)
 
 ## Pessoas Autoras
 ![Lucas de Felice Fernandes](https://media.licdn.com/dms/image/C4E03AQH_NVm9GHJyQQ/profile-displayphoto-shrink_200_200/0/1614859902829?e=1727308800&v=beta&t=ZTH-Q46NA--oXxlHHYsVl3DqFWxG9Ddem7RR3hcG3To)
