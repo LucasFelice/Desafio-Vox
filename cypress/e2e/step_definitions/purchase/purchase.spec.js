@@ -2,6 +2,7 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import login from '../../../support/pages/login/loginPage'
 import inventory from '../../../support/pages/inventory/inventoryPage'
 import information from '../../../support/pages/checkout/informationPage'
+import infJson from '../../../fixtures/information.json'
 const inventoryElements = require('../../../support/pages/inventory/elements').INVENTORY;
 const cartElements = require('../../../support/pages/cart/elements').CART;
 const checkoutElements = require('../../../support/pages/checkout/elements').CHECKOUT;
@@ -19,7 +20,10 @@ When("I click on the checkout button of the page cart", () => {
 })
 
 And("I type my first name, last name, and zip postal code in the information form", () => {
-    information.typeInformation('Lucas', 'Desafio', '123456')
+    information.typeInformation(    infJson.First_Name, 
+                                    infJson.Last_Name, 
+                                    infJson.Postal_Code
+                            )
 })
 
 And("I click on the continue button of the checkout page", () => {
