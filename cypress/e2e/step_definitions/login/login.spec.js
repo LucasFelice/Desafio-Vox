@@ -1,5 +1,6 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import login from '../../../support/pages/login/loginPage'
+import loginJson from '../../../fixtures/login.json'
 const loginElements = require('../../../support/pages/login/elements').LOGIN;
 
 Given("I'm on the login page", () => {
@@ -7,7 +8,7 @@ Given("I'm on the login page", () => {
 })
 
 When("I type a registered email and password", () => {
-    login.doLogin('standard_user', 'secret_sauce')
+    login.doLogin(loginJson.User_Name, loginJson.Password)
 })
 
 Then("I have a successful login", () => {
@@ -15,7 +16,7 @@ Then("I have a successful login", () => {
 })
 
 When("I type a registered email and an incorrect password", () => {
-    login.doLogin('standard_user', 'incorrect_password')
+    login.doLogin(loginJson.User_Name, loginJson.Incorrect_Pass)
 })
 
 Then("I have an unsuccessful login", () => {
