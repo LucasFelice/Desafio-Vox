@@ -1,11 +1,6 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import login from '../../../support/pages/login/loginPage'
+import { When, Then } from 'cypress-cucumber-preprocessor/steps'
+import login from '../../step_definitions/login/login.spec'
 const inventoryElements = require('../../../support/pages/inventory/elements').INVENTORY;
-
-Given("I have a successful login", () => {
-    cy.visit(Cypress.config().baseUrl)
-    login.doLogin('standard_user', 'secret_sauce')
-})
 
 When("I access the inventory page", () => {
     cy.url().should('eq', Cypress.config().baseUrl + '/inventory.html')
