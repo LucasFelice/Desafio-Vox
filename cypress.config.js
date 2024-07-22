@@ -10,8 +10,5 @@ module.exports = defineConfig({
       on('file:preprocessor', cucumber())
       return config;
     },
-    env: {
-      
-    },
   }
 })
