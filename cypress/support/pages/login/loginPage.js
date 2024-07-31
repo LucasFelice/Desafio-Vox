@@ -1,11 +1,12 @@
-const elements = require('./elements').LOGIN;
+// const elements = require('./elements').LOGIN;
+import { Given, When, Then, login, loginJson, loginElements } from '../../../support/pages/imports';
 
 class loginPage {
 
     doLogin(user, password) {
-        cy.get(elements.username).type(user)
-        cy.get(elements.password).type(password)
-        cy.get(elements.loginButton).click()
+        cy.get(loginElements.username).type(user)
+        cy.get(loginElements.password).type(password)
+        cy.get(loginElements.loginButton).click()
     }
 }
 

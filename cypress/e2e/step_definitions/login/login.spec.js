@@ -1,14 +1,11 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import login from '../../../support/pages/login/loginPage'
-import loginJson from '../../../fixtures/login.json'
-const loginElements = require('../../../support/pages/login/elements').LOGIN;
+import { Given, When, Then, login, loginJson, loginElements } from '../../../support/pages/imports';
 
 Given("I'm on the login page", () => {
     cy.visit(Cypress.config().baseUrl)
 })
 
 When("I type a registered email and password", () => {
-    login.doLogin(loginJson.User_Name, loginJson.Password)
+    login.doLogin(loginJson.userName, loginJson.password)
 })
 
 Then("I have a successful login", () => {
@@ -16,7 +13,7 @@ Then("I have a successful login", () => {
 })
 
 When("I type a registered email and an incorrect password", () => {
-    login.doLogin(loginJson.User_Name, loginJson.Incorrect_Pass)
+    login.doLogin(loginJson.userName, loginJson.incorrectPass)
 })
 
 Then("I have an unsuccessful login", () => {
