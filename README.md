@@ -46,6 +46,7 @@ $ npm install
 $ npm run dev ⇢ Abre a interface do cypress
 $ npm run allure:chrome ⇢ Esse comando irá executar os testes no navegador Chrome e gerar os resultados no diretório "allure-results".
 $ npm run allure:report ⇢ Esse comando irá gerar o relatório Allure a partir dos resultados e abrir o relatório no navegador.
+$ npm run allure:clear ⇢ Esse comando irá remover as pastas 'allure-results' e 'allure-report'.
 $ Obs.: Foi feita a configuração do Allure via Mocha.
 ```
 ## Tecnologias Utilizadas

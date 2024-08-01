@@ -1,3 +1,4 @@
+@purchase
 Feature: Purchase
 
 Background: login and add products
