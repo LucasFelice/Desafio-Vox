@@ -5,7 +5,7 @@ Given("I'm on the login page", () => {
 })
 
 When("I type a registered email and password", () => {
-    login.doLogin(loginJson.userName, loginJson.password)
+    login.doLogin('standard_user', 'secret_sauce')
 })
 
 Then("I have a successful login", () => {
